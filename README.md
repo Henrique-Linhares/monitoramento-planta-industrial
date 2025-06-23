@@ -1,10 +1,10 @@
 Monitoramento de Planta com CLP Siemens e Web
-Este projeto mostra como pegar dados de uma planta (ou protótipo) usando um CLP Siemens, processar esses dados com Node-RED e depois mostrá-los em tempo real em um site (HTML, CSS, JavaScript).
+Este projeto demonstra como adquirir dados de uma planta (ou protótipo) utilizando um CLP Siemens, processar esses dados com Node-RED e, em seguida, exibi-los em tempo real em um site (HTML, CSS, JavaScript).
 
 🚀 O que ele faz?
-A ideia é criar um jeito de ver o que está acontecendo na planta (como temperatura, nível, etc. - ajuste para os seus dados). O CLP lê os dados, o Node-RED organiza e manda para o site, onde você pode ver em gráficos e painéis.
+A ideia central é criar um sistema para visualizar e monitorar o que está acontecendo na planta (como temperatura, nível, etc. - ajuste conforme os seus dados). O CLP é responsável por ler os dados brutos, o Node-RED organiza e prepara essas informações, e o site as apresenta em gráficos e painéis intuitivos para fácil acompanhamento.
 
 ✨ Pontos Chave
-Pega dados do CLP Siemens: Conecta e lê informações direto do CLP.
-Organiza com Node-RED: Faz a ponte entre o CLP e o site, tratando os dados.
-Mostra no Site (HTML, CSS, JS): Cria uma página que funciona bem em qualquer aparelho para ver os dados ao vivo.
+Pega dados do CLP Siemens: Estabelece a conexão e coleta as informações diretamente do CLP.
+Organiza com Node-RED: Atua como um intermediário inteligente, tratando e encaminhando os dados do CLP para o ambiente web.
+Mostra no Site (HTML, CSS, JS): Desenvolve uma interface web responsiva que permite a visualização dos dados em tempo real, funcionando bem em diversos dispositivos.
