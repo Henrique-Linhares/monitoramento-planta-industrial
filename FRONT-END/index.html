@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <script src="js/script.js"></script>
+  </head>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <body>
+    <header>
+      <nav>
+        <div class="title">
+          <h1
+            style="color: #007bff; font-family: 'Roboto Condensed', sans-serif"
+          >
+            AutoStock Automação
+          </h1>
+        </div>
+        <div class="itens-2" style="display: flex; align-items: center">
+          <p
+            style="
+              color: #007bff;
+              font-family: 'Inter', sans-serif;
+              margin: 2vh;
+            "
+            id="nome"
+          >
+            Seja bem vindo
+          </p>
+          <a href="#">
+            <img src="images/cadastre.png" alt="" style="height: 6vh"
+          /></a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1
+        style="
+          text-align: center;
+          margin: 20px;
+          font-family: 'Inter', sans-serif;
+          color: #007bff;
+        "
+      >
+        Dados Coletados
+      </h1>
+      <article style="font-family: 'Inter', sans-serif">
+        <div class="operacao-estoque">
+          <h2>Estoque:</h2>
+          <br />
+          <p id="estoque"></p>
+        </div>
+        <div class="operacao-manipulacao">
+          <h2>Manipulação:</h2>
+          <br />
+          <p id="manipulacao"></p>
+        </div>
+        <div class="operacao-separacao">
+          <h2>Separação:</h2>
+          <br />
+          <p id="separacao"></p>
+        </div>
+        <div class="operacao-string">
+          <h2>String:</h2>
+          <br />
+          <p id="string"></p>
+        </div>
+        <div class="total-pedidos">
+          <h2>Pedidos:</h2>
+          <br />
+          <p id="pedidos"></p>
+        </div>
+        <div class="pedidos-reprovados">
+          <h2>Pedidos reprovados:</h2>
+          <br />
+          <p id="reprovados"></p>
+        </div>
+        <div class="pedidos-15-min">
+          <h2>Ultimos 15 minutos:</h2>
+          <br />
+          <p id="15min"></p>
+        </div>
+        <div class="temperatura">
+          <h2>Temperatura:</h2>
+          <br />
+          <p id="temp"></p>
+        </div>
+        <div class="umidade">
+          <h2>Umidade:</h2>
+          <br />
+          <p></p>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #343A40;
+    height: 10vh;
+
+}
+
+nav h1 {
+    margin: 2vh;
+}
+
+main {
+    height: 700px;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 20px;
+    background-color: #343A40;
+    color: #007BFF;
+    border-radius: 5%;
+    margin: 4%;
+
+}
+
+.operacao-estoque, .operacao-manipulacao, .operacao-separacao, .operacao-string,
+.total-pedidos, .pedidos-reprovados, .pedidos-15-min,
+.temperatura, .umidade {
+    background-color: #fff;
+    height: 120px;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 150px;
+    padding: 1vh;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.operacao-estoque, .operacao-manipulacao, .operacao-separacao, .operacao-string,
+.total-pedidos, .pedidos-reprovados, .pedidos-15-min,
+.temperatura, .umidade {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    transition: transform 0.3s ease;
+}
+
+.operacao-estoque:hover, .operacao-manipulacao:hover, .operacao-separacao:hover, .operacao-string:hover,
+.total-pedidos:hover, .pedidos-reprovados:hover, .pedidos-15-min:hover,
+.temperatura:hover, .umidade:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 3);
+    cursor: pointer;
+}

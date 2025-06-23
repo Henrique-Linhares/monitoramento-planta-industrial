@@ -1,0 +1,212 @@
+[
+    {
+        "id": "c86d4590e5119d3f",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b1bfe3d0bb3b8cc1",
+        "type": "inject",
+        "z": "c86d4590e5119d3f",
+        "name": "Disparar busca",
+        "props": [],
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 380,
+        "wires": [
+            [
+                "15ae0be2f94f9f3d"
+            ]
+        ]
+    },
+    {
+        "id": "15ae0be2f94f9f3d",
+        "type": "http request",
+        "z": "c86d4590e5119d3f",
+        "name": "GET dadosPlanta",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "10.110.12.3:1880/dadosPlanta",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 430,
+        "y": 420,
+        "wires": [
+            [
+                "9187f244be5cbb64"
+            ]
+        ]
+    },
+    {
+        "id": "9187f244be5cbb64",
+        "type": "json",
+        "z": "c86d4590e5119d3f",
+        "name": "Converter JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 660,
+        "y": 460,
+        "wires": [
+            [
+                "57b5f963d7eab01d"
+            ]
+        ]
+    },
+    {
+        "id": "57b5f963d7eab01d",
+        "type": "function",
+        "z": "c86d4590e5119d3f",
+        "name": "Salvar Variáveis",
+        "func": "let dados = msg.payload;\n\nlet resultado = {\n    estoque: dados.operacao_estoque,\n    manipulacao: dados.operacao_manipulacao,\n    separacao: dados.operacao_separacao,\n    operacao_string: dados.operacao_string,\n    aguardando: dados.aguardando,\n    produzindo: dados.produzindo,\n    total_pedidos: dados.total_pedidos,\n    pedidos_reprovados: dados.pedidos_reprovados,\n    pedidos15min: dados.pedidos15min,\n    temperatura: dados.Temperatura,\n    umidade: dados.Umidade\n};\n\nglobal.set(\"planta.estado\", resultado);\n\nmsg.topic = `\n  INSERT INTO dados \n  (estoque, manipulacao, separacao, operacao_string, aguardando, produzindo, total_pedidos, pedidos_reprovados, pedidos_15min, temperatura, umidade, created_at) \n  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())\n`;\n\nmsg.payload = [\n    resultado.estoque,\n    resultado.manipulacao,\n    resultado.separacao,\n    resultado.operacao_string,\n    resultado.aguardando,\n    resultado.produzindo,\n    resultado.total_pedidos,\n    resultado.pedidos_reprovados,\n    resultado.pedidos15min,\n    resultado.temperatura,\n    resultado.umidade\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 340,
+        "wires": [
+            [
+                "a5fb4d7b9bb70029"
+            ]
+        ]
+    },
+    {
+        "id": "cbde7bc29577f1c3",
+        "type": "debug",
+        "z": "c86d4590e5119d3f",
+        "name": "Resultado",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a5fb4d7b9bb70029",
+        "type": "mysql",
+        "z": "c86d4590e5119d3f",
+        "mydb": "94c6e24b08ae489d",
+        "name": "",
+        "x": 920,
+        "y": 440,
+        "wires": [
+            [
+                "cbde7bc29577f1c3"
+            ]
+        ]
+    },
+    {
+        "id": "a6d3dcca49211b3e",
+        "type": "http in",
+        "z": "c86d4590e5119d3f",
+        "name": "",
+        "url": "/api/planta",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 520,
+        "wires": [
+            [
+                "66c80e49734c0a08"
+            ]
+        ]
+    },
+    {
+        "id": "66c80e49734c0a08",
+        "type": "function",
+        "z": "c86d4590e5119d3f",
+        "name": "Select ",
+        "func": "msg.topic = \"SELECT * FROM dados ORDER BY id_dados DESC LIMIT 1\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 580,
+        "wires": [
+            [
+                "a2aef97102808f83"
+            ]
+        ]
+    },
+    {
+        "id": "a2aef97102808f83",
+        "type": "mysql",
+        "z": "c86d4590e5119d3f",
+        "mydb": "94c6e24b08ae489d",
+        "name": "",
+        "x": 600,
+        "y": 580,
+        "wires": [
+            [
+                "0ec93b0e0da15f15"
+            ]
+        ]
+    },
+    {
+        "id": "0ec93b0e0da15f15",
+        "type": "function",
+        "z": "c86d4590e5119d3f",
+        "name": "Formatar Resposta",
+        "func": "let dado = msg.payload[0];  \n\nif (!dado) {\n    msg.payload = { erro: \"Nenhum dado encontrado\" };\n    msg.statusCode = 404;\n} else {\n    msg.payload = dado;\n    msg.statusCode = 200;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 640,
+        "wires": [
+            [
+                "bbe7d6683f526afd"
+            ]
+        ]
+    },
+    {
+        "id": "bbe7d6683f526afd",
+        "type": "http response",
+        "z": "c86d4590e5119d3f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1010,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "94c6e24b08ae489d",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "atividade_automacao",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]
