@@ -1,10 +1,50 @@
-Monitoramento de Planta com CLP Siemens e Web
-Este projeto demonstra como adquirir dados de uma planta (ou protótipo) utilizando um CLP Siemens, processar esses dados com Node-RED e, em seguida, exibi-los em tempo real em um site (HTML, CSS, JavaScript).
+🌿 Monitoramento de Planta com CLP Siemens e Web
+Este projeto foi desenvolvido como atividade acadêmica no SENAI, utilizando a Planta 4.0 da instituição. O objetivo foi criar uma solução de monitoramento em tempo real, integrando CLP Siemens, Node-RED e uma interface web responsiva com HTML, CSS e JavaScript.
 
-🚀 O que ele faz?
-A ideia central é criar um sistema para visualizar e monitorar o que está acontecendo na planta (como temperatura, nível, etc. - ajuste conforme os seus dados). O CLP é responsável por ler os dados brutos, o Node-RED organiza e prepara essas informações, e o site as apresenta em gráficos e painéis intuitivos para fácil acompanhamento.
+🚀 O que este projeto faz?
+A ideia é criar uma interface visual para acompanhar o que está acontecendo na planta — como temperatura, nível, pressão, entre outros dados (ajuste conforme o seu projeto).
 
-✨ Pontos Chave
-Pega dados do CLP Siemens: Estabelece a conexão e coleta as informações diretamente do CLP.
-Organiza com Node-RED: Atua como um intermediário inteligente, tratando e encaminhando os dados do CLP para o ambiente web.
-Mostra no Site (HTML, CSS, JS): Desenvolve uma interface web responsiva que permite a visualização dos dados em tempo real, funcionando bem em diversos dispositivos.
+O CLP Siemens faz a leitura dos dados da planta.
+
+O Node-RED processa e organiza essas informações.
+
+Os dados são enviados para o site, onde são exibidos em gráficos e painéis interativos.
+
+✨ Pontos-chave do projeto
+Leitura de dados com CLP Siemens: Coleta em tempo real diretamente do CLP.
+
+Processamento com Node-RED: Atua como intermediário, organizando e enviando os dados.
+
+Exibição em tempo real na Web: Interface web (HTML, CSS, JS) responsiva e amigável para monitoramento ao vivo.
+
+🎓 Contexto acadêmico
+Este projeto foi realizado no SENAI como parte de uma atividade prática de integração de tecnologias da Indústria 4.0, com foco em:
+
+Automação industrial
+
+Comunicação entre dispositivos
+
+Visualização de dados em tempo real
+
+Internet das Coisas (IoT)
+
+📦 Tecnologias utilizadas
+CLP Siemens
+
+Node-RED
+
+HTML5
+
+CSS3
+
+JavaScript
+
+🛠️ Possíveis melhorias futuras
+Adição de banco de dados para histórico de dados.
+
+Dashboards com autenticação.
+
+Responsividade avançada para dispositivos móveis.
+
+Alertas em tempo real para eventos críticos.
+
