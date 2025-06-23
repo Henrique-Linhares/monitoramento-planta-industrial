@@ -29,7 +29,6 @@ Este projeto foi realizado no **SENAI** como parte de uma atividade prática de 
 - Automação industrial  
 - Comunicação entre dispositivos  
 - Visualização de dados em tempo real  
-- Internet das Coisas (IoT)
 
 ---
 
